@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+
+    <link rel="stylesheet" type="text/css" href="../../utils/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script> -->
+</head>
+
+<body oncontextmenu="return false;">
+    <main></main>
+    <script>
+        let config = {
+
+        };
+        const useConfig = (event) => {
+            if (typeof event.data !== 'object' || event.data.call !== 'sketch_config') return;
+            config = { ...config, ...event.data.value, };
+            setup();
+        };
+        window.addEventListener('load', () => window.addEventListener('message', useConfig, false));
+    </script>
+    <script src="minesweeper.js"></script>
+    <script src="sketch.js"></script>
+</body>
+
+</html>
